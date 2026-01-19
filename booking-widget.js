@@ -34,6 +34,7 @@ class BookingWidget {
             timeSlotsContainer: document.getElementById('timeSlotsContainer'),
             timeSlots: document.getElementById('timeSlots'),
             selectedDate: document.getElementById('selectedDate'),
+            widgetPanels: document.getElementById('widgetPanels'),
             bookingForm: document.getElementById('bookingForm'),
             appointmentForm: document.getElementById('appointmentForm'),
             cancelBooking: document.getElementById('cancelBooking'),
@@ -339,8 +340,8 @@ class BookingWidget {
         this.elements.summaryDate.textContent = formattedDate;
         this.elements.summaryTime.textContent = formattedTime;
 
-        this.elements.bookingForm.style.display = 'block';
-        this.elements.bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Trigger slide animation
+        this.elements.widgetPanels.classList.add('show-form');
     }
 
     async handleBookingSubmit(event) {
@@ -466,16 +467,16 @@ Notes: ${bookingData.notes || 'None'}
 
     showSuccessMessage() {
         this.elements.bookingForm.style.display = 'none';
-        this.elements.timeSlotsContainer.style.display = 'none';
         this.elements.successMessage.style.display = 'block';
-        this.elements.successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     resetBooking() {
         this.selectedDate = null;
         this.selectedTime = null;
 
-        this.elements.bookingForm.style.display = 'none';
+        // Slide back to calendar view
+        this.elements.widgetPanels.classList.remove('show-form');
+
         this.elements.timeSlotsContainer.style.display = 'none';
         this.elements.successMessage.style.display = 'none';
         this.elements.appointmentForm.reset();

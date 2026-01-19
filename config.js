@@ -88,7 +88,7 @@ const BOOKING_CONFIG = {
     // Where should booking notifications be sent?
     notifications: {
         // Your email address
-        recipientEmail: 'your-email@example.com',
+        recipientEmail: 'zn@zachnolin.com',
 
         // Email service (options: 'formspree', 'emailjs', 'custom')
         provider: 'formspree',
