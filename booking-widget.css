@@ -1,0 +1,383 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f5f5f5;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Widget Container */
+.booking-widget {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.widget-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 24px;
+    text-align: center;
+}
+
+.widget-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Calendar Container */
+.calendar-container {
+    padding: 24px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-btn {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    margin-bottom: 20px;
+}
+
+.weekday-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    padding: 8px 0;
+    text-transform: uppercase;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.day.other-month {
+    color: #ccc;
+    cursor: default;
+}
+
+.day.past {
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.day.available {
+    background: #f8f9ff;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.day.available:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+}
+
+.day.selected {
+    background: #667eea;
+    color: white;
+    border-color: #764ba2;
+}
+
+.day.unavailable {
+    color: #999;
+    cursor: default;
+}
+
+.day.today {
+    border-color: #667eea;
+}
+
+/* Time Slots */
+.time-slots-container {
+    padding: 24px;
+    border-top: 1px solid #eee;
+    animation: slideIn 0.3s ease-out;
+}
+
+.time-slots-container h3 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+#selectedDate {
+    color: #667eea;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+}
+
+.time-slot {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+    background: white;
+}
+
+.time-slot:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+    transform: translateY(-2px);
+}
+
+.time-slot.selected {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.time-slot.booked {
+    background: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #f0f0f0;
+}
+
+.time-slot.booked:hover {
+    transform: none;
+}
+
+/* Booking Form */
+.booking-form {
+    padding: 24px;
+    border-top: 1px solid #eee;
+    animation: slideIn 0.3s ease-out;
+}
+
+.booking-form h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.booking-summary {
+    background: #f8f9ff;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border-left: 4px solid #667eea;
+}
+
+.booking-summary p {
+    margin: 4px 0;
+    color: #555;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0;
+}
+
+/* Success Message */
+.success-message {
+    padding: 48px 24px;
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+}
+
+.success-content h3 {
+    font-size: 24px;
+    color: #4caf50;
+    margin-bottom: 12px;
+}
+
+.success-content p {
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading State */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #667eea;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .booking-widget {
+        border-radius: 8px;
+    }
+
+    .widget-header {
+        padding: 20px;
+    }
+
+    .widget-header h2 {
+        font-size: 20px;
+    }
+
+    .calendar-container,
+    .time-slots-container,
+    .booking-form {
+        padding: 16px;
+    }
+
+    .time-slots {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}

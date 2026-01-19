@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Booking Calendar</title>
+    <link rel="stylesheet" href="booking-widget.css">
+</head>
+<body>
+    <div class="booking-widget">
+        <div class="widget-header">
+            <h2>Book an Appointment</h2>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prevMonth" class="nav-btn">&lt;</button>
+                <h3 id="currentMonth"></h3>
+                <button id="nextMonth" class="nav-btn">&gt;</button>
+            </div>
+
+            <div class="calendar-grid">
+                <div class="weekday-header">
+                    <div class="weekday">Sun</div>
+                    <div class="weekday">Mon</div>
+                    <div class="weekday">Tue</div>
+                    <div class="weekday">Wed</div>
+                    <div class="weekday">Thu</div>
+                    <div class="weekday">Fri</div>
+                    <div class="weekday">Sat</div>
+                </div>
+                <div id="calendarDays" class="days-grid"></div>
+            </div>
+        </div>
+
+        <div class="time-slots-container" id="timeSlotsContainer" style="display: none;">
+            <h3>Available Times for <span id="selectedDate"></span></h3>
+            <div id="timeSlots" class="time-slots"></div>
+        </div>
+
+        <div class="booking-form" id="bookingForm" style="display: none;">
+            <h3>Complete Your Booking</h3>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <div class="booking-summary">
+                    <p><strong>Date:</strong> <span id="summaryDate"></span></p>
+                    <p><strong>Time:</strong> <span id="summaryTime"></span></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelBooking" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="success-message" id="successMessage" style="display: none;">
+            <div class="success-content">
+                <h3>✓ Booking Confirmed!</h3>
+                <p>You'll receive a confirmation email shortly.</p>
+                <button id="newBooking" class="btn btn-primary">Book Another Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include configuration and main script -->
+    <script src="config.js"></script>
+    <script src="booking-widget.js"></script>
+</body>
+</html>
